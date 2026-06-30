@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Andamios Marlun — Un Servicio Excepcional</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"/>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --blue:#1A237E;
+    --blue-mid:#283593;
+    --blue-dark:#0D1257;
+    --blue-light:#E8EAF6;
+    --red:#8B1A1A;
+    --red-mid:#A52020;
+    --red-light:#FDECEA;
+    --gray:#5A6470;
+    --gray-light:#F4F6F8;
+    --border:#DDE3E9;
+    --white:#FFFFFF;
+    --font-display:'Barlow Condensed',sans-serif;
+    --font-body:'Inter',sans-serif;
+  }
+  html{scroll-behavior:smooth}
+  section{scroll-margin-top:90px}
+  body{font-family:var(--font-body);color:#2C3240;background:var(--white);line-height:1.6;font-size:16px}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid var(--border);padding:0 5%}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:72px}
+  .logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
+  .logo-wrap img{height:52px;width:auto;object-fit:contain}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .logo-text strong{font-family:var(--font-display);font-size:20px;font-weight:800;color:var(--blue);letter-spacing:.5px;text-transform:uppercase}
+  .logo-text span{font-size:11px;color:var(--red);font-style:italic;font-weight:500}
+  .nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{font-size:14px;font-weight:500;color:var(--gray);text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--blue)}
+  .nav-cta{background:var(--red);color:var(--white);padding:10px 22px;border-radius:6px;font-size:14px;font-weight:600;text-decoration:none;transition:background .2s}
+  .nav-cta:hover{background:var(--red-mid)}
+
+  /* HERO */
+  .hero{background:var(--blue-dark);padding:80px 5% 90px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 60px)}
+  .hero-inner{max-width:760px;margin:0 auto;position:relative}
+  .hero-logo{margin-bottom:32px}
+  .hero-logo img{height:120px;width:auto;filter:drop-shadow(0 4px 24px rgba(0,0,0,.4))}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(139,26,26,.25);border:1px solid rgba(139,26,26,.5);color:#F4A9A8;padding:6px 16px;border-radius:100px;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:24px}
+  .hero-badge i{font-size:14px}
+  h1{font-family:var(--font-display);font-size:clamp(48px,8vw,80px);font-weight:800;color:var(--white);line-height:1;letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+  h1 span{color:#EF5350}
+  .hero-tagline{font-style:italic;font-size:16px;color:#9FA8C7;margin-bottom:20px;letter-spacing:.5px}
+  .hero-sub{font-size:18px;color:#A8B4D0;max-width:540px;margin:0 auto 40px;line-height:1.7}
+  .hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn-primary{background:var(--red);color:var(--white);padding:14px 32px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s;border:none;cursor:pointer}
+  .btn-primary:hover{background:var(--red-mid)}
+  .btn-secondary{background:transparent;color:var(--white);padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.25);transition:border-color .2s}
+  .btn-secondary:hover{border-color:rgba(255,255,255,.6)}
+  .hero-stats{display:flex;justify-content:center;gap:48px;margin-top:64px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat-n{font-family:var(--font-display);font-size:42px;font-weight:800;color:var(--white);line-height:1}
+  .stat-n span{color:#EF5350}
+  .stat-l{font-size:13px;color:#7A8FA8;margin-top:4px;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+
+  /* SECTION BASE */
+  section{padding:80px 5%}
+  .section-inner{max-width:1100px;margin:0 auto}
+  .section-tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:14px}
+  .section-title{font-family:var(--font-display);font-size:clamp(30px,4vw,44px);font-weight:800;color:var(--blue-dark);text-transform:uppercase;line-height:1.1;margin-bottom:12px}
+  .section-sub{font-size:17px;color:var(--gray);max-width:520px;line-height:1.7}
+
+  /* PRODUCTOS */
+  .products{background:var(--gray-light)}
+  .products-head{text-align:center;margin-bottom:52px}
+  .products-head .section-sub{margin:0 auto}
+  .products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .product-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .product-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,35,126,.12)}
+  .product-img{height:160px;display:flex;align-items:center;justify-content:center;font-size:72px}
+  .product-img.blue{background:var(--blue)}
+  .product-img.blue-mid{background:var(--blue-mid)}
+  .product-img.red{background:var(--red)}
+  .product-body{padding:24px}
+  .product-body h3{font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue-dark);text-transform:uppercase;margin-bottom:8px}
+  .product-body p{font-size:14px;color:var(--gray);line-height:1.6;margin-bottom:18px}
+  .product-price{display:flex;align-items:baseline;gap:6px;margin-bottom:18px}
+  .price-from{font-size:12px;color:var(--gray);font-weight:500}
+  .price-num{font-family:var(--font-display);font-size:30px;font-weight:800;color:var(--red)}
+  .price-unit{font-size:13px;color:var(--gray)}
+  .btn-card{width:100%;background:var(--blue);color:var(--white);border:none;padding:12px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s;text-decoration:none}
+  .btn-card:hover{background:var(--red)}
+
+  /* POR QUÉ NOSOTROS */
+  .why{background:var(--white)}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  .why-visual{background:var(--blue-dark);border-radius:16px;padding:48px;display:flex;flex-direction:column;gap:20px}
+  .why-feature{display:flex;align-items:flex-start;gap:16px}
+  .why-icon{width:44px;height:44px;border-radius:10px;background:rgba(239,83,80,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .why-icon i{font-size:22px;color:#EF5350}
+  .why-text h4{font-size:16px;font-weight:600;color:var(--white);margin-bottom:4px}
+  .why-text p{font-size:14px;color:#8A9BC4;line-height:1.6}
+  .why-content{padding-right:20px}
+  .why-content .section-sub{margin-bottom:32px}
+  .why-list{list-style:none;display:flex;flex-direction:column;gap:14px}
+  .why-list li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--gray);font-weight:500}
+  .why-list li i{color:var(--blue);font-size:20px;flex-shrink:0}
+
+  /* PROCESO */
+  .process{background:var(--blue-dark);padding:80px 5%}
+  .process-head{text-align:center;margin-bottom:56px}
+  .process-head .section-title{color:var(--white)}
+  .process-head .section-sub{color:#8A9BC4;margin:0 auto}
+  .process-head .section-tag{background:rgba(139,26,26,.25);color:#F4A9A8}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0}
+  .step{text-align:center;padding:32px 24px;position:relative}
+  .step-n{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#EF5350;margin-bottom:16px}
+  .step-icon{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+  .step-icon i{font-size:30px;color:var(--white)}
+  .step h3{font-family:var(--font-display);font-size:20px;font-weight:700;color:var(--white);text-transform:uppercase;margin-bottom:10px}
+  .step p{font-size:14px;color:#8A9BC4;line-height:1.6}
+
+  /* ZONAS */
+  .zones{background:var(--gray-light)}
+  .zones-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:40px}
+  .zone-chip{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;display:flex;align-items:center;gap:12px;font-weight:600;font-size:15px;color:var(--blue-dark);transition:border-color .2s,color .2s}
+  .zone-chip:hover{border-color:var(--red);color:var(--red)}
+  .zone-chip i{font-size:20px;color:var(--red)}
+
+
+  /* COTIZADOR */
+  .quote{background:var(--white)}
+  .quote-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;margin-top:40px}
+  .quote-form,.quote-result{background:var(--gray-light);border:1px solid var(--border);border-radius:16px;padding:28px}
+  .quote-form h3,.quote-result h3{font-family:var(--font-display);font-size:26px;color:var(--blue-dark);text-transform:uppercase;margin-bottom:18px}
+  .form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+  .form-group label{font-size:14px;font-weight:700;color:var(--blue-dark)}
+  .form-group input,.form-group select{width:100%;border:1px solid var(--border);border-radius:8px;padding:12px 14px;font-family:var(--font-body);font-size:15px;background:var(--white);color:#2C3240}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .quote-note{font-size:13px;color:var(--gray);line-height:1.6;margin-top:12px}
+  .quote-total{background:var(--blue-dark);color:var(--white);border-radius:14px;padding:24px;text-align:center;margin-bottom:18px}
+  .quote-total span{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.8px;color:#A8B4D0;margin-bottom:6px}
+  .quote-total strong{font-family:var(--font-display);font-size:46px;line-height:1;color:#fff}
+  .quote-breakdown{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:22px}
+  .quote-breakdown li{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--border);padding-bottom:10px;font-size:14px;color:var(--gray)}
+  .quote-breakdown strong{color:var(--blue-dark)}
+  .quote-whatsapp{width:100%;background:var(--red);color:var(--white);padding:14px 20px;border-radius:8px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s}
+  .quote-whatsapp:hover{background:var(--red-mid)}
+  @media(max-width:768px){.quote-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+
+  /* CTA */
+  .cta-section{background:var(--red);padding:80px 5%;text-align:center}
+  .cta-section h2{font-family:var(--font-display);font-size:clamp(32px,5vw,56px);font-weight:800;color:var(--white);text-transform:uppercase;margin-bottom:16px;line-height:1.1}
+  .cta-section p{font-size:18px;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto 36px;line-height:1.6}
+  .cta-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn-white{background:var(--white);color:var(--red);padding:14px 32px;border-radius:8px;font-size:16px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:opacity .2s}
+  .btn-white:hover{opacity:.9}
+  .btn-outline-white{background:transparent;color:var(--white);padding:14px 32px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border:2px solid rgba(255,255,255,.5);transition:border-color .2s}
+  .btn-outline-white:hover{border-color:var(--white)}
+
+  /* FOOTER */
+  footer{background:var(--blue-dark);padding:48px 5% 32px}
+  .footer-inner{max-width:1100px;margin:0 auto}
+  .footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px}
+  .footer-brand{display:flex;flex-direction:column;gap:14px}
+  .footer-logo-wrap{display:flex;align-items:center;gap:12px}
+  .footer-logo-img{height:58px;width:auto;object-fit:contain;background:#fff; padding:6px; border-radius:8px;}
+  .footer-logo-text strong{font-family:var(--font-display);font-size:18px;font-weight:800;color:var(--white);text-transform:uppercase;display:block}
+  .footer-logo-text span{font-size:11px;color:#8A9BC4;font-style:italic}
+  .footer-brand p{font-size:14px;color:#8A9BC4;line-height:1.7}
+  .footer-col h4{font-size:13px;font-weight:700;color:var(--white);text-transform:uppercase;letter-spacing:.8px;margin-bottom:16px}
+  .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .footer-col ul a{font-size:14px;color:#8A9BC4;text-decoration:none;transition:color .2s}
+  .footer-col ul a:hover{color:#EF5350}
+  .footer-contact{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+  .footer-contact a{font-size:14px;color:#8A9BC4;text-decoration:none;display:flex;align-items:center;gap:8px;transition:color .2s}
+  .footer-contact a:hover{color:#EF5350}
+  .footer-contact i{font-size:16px;color:#EF5350}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:13px;color:#5A6A88}
+
+  @media(max-width:768px){
+    .why-grid{grid-template-columns:1fr}
+    .footer-top{grid-template-columns:1fr 1fr}
+    .footer-brand{grid-column:1/-1}
+    nav .nav-links,.nav-cta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo-wrap">
+      <!-- Coloca tu logo en /public/logo.jpeg y actualiza este src -->
+      <img src="./logo.jpeg" alt="Andamios Marlun"/>
+      <div class="logo-text">
+        <strong>Andamios Marlun</strong>
+        <span>"Un Servicio Excepcional"</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#nosotros">¿Por qué nosotros?</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#zonas">Zonas de entrega</a></li>
+    </ul>
+    <a href="#cotizador" class="nav-cta">Cotizar ahora</a>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-logo">
+      <img src="./logo.jpeg" alt="Andamios Marlun"/>
+    </div>
+    <div class="hero-badge"><i class="ti ti-shield-check"></i> Equipo certificado y seguro</div>
+    <h1>Renta de<br/><span>Andamios</span><br/>Profesional</h1>
+    <p class="hero-tagline">"Un Servicio Excepcional"</p>
+    <p class="hero-sub">Andamios industriales y multidireccionales para construcción, remodelación y mantenimiento. Entrega en 24 horas en toda el área metropolitana.</p>
+    <div class="hero-actions">
+      <a href="#cotizador" class="btn-primary"><i class="ti ti-calculator"></i> Cotizar ahora</a>
+      <a href="#productos" class="btn-secondary"><i class="ti ti-eye"></i> Ver catálogo</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-n">15<span>+</span></div>
+        <div class="stat-l">Años de experiencia</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">500<span>+</span></div>
+        <div class="stat-l">Obras completadas</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">24<span>h</span></div>
+        <div class="stat-l">Tiempo de entrega</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">100<span>%</span></div>
+        <div class="stat-l">Garantía de calidad</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ========== COTIZADOR ========== -->
+<section class="quote" id="cotizador">
+  <div class="section-inner">
+    <span class="section-tag">Cotizador</span>
+    <h2 class="section-title">Cotiza tu renta de andamios</h2>
+    <p class="section-sub">Agrega la cantidad de cada tipo de andamio que necesitas. No realizamos instalaciones, solo renta de equipo.</p>
+
+    <div class="quote-grid">
+      <div class="quote-form">
+        <h3>Equipo a rentar</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="estandar">Andamio estándar ($60/día)</label>
+            <input type="number" id="estandar" min="0" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="perry">Andamio Perry ($90/día)</label>
+            <input type="number" id="perry" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="medio">Medio cuerpo ($60/día)</label>
+            <input type="number" id="medio" min="0" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="pasillo">Andamio de pasillo ($60/día)</label>
+            <input type="number" id="pasillo" min="0" value="0">
+          </div>
+        </div>
+
+        <h3 style="margin-top:22px;">Accesorios en renta</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="ruedas">Juego de 4 ruedas ($65/día)</label>
+            <input type="number" id="ruedas" min="0" value="0">
+          </div>
+
+          <div class="form-group">
+            <label for="niveladores">Juego de 4 niveladores ($65/día)</label>
+            <input type="number" id="niveladores" min="0" value="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="plataformas">Plataformas ($50/día)</label>
+          <input type="number" id="plataformas" min="0" value="0">
+        </div>
+
+        <div class="form-group">
+          <label for="dias">Días de renta</label>
+          <input type="number" id="dias" min="1" value="1">
+        </div>
+
+
+<div class="quote-note" style="margin-bottom:18px;">
+<strong>Importante:</strong> El costo del flete no está incluido en esta cotización.
+Las entregas cercanas suelen tener un costo menor, mientras que para zonas más alejadas el costo puede aumentar.
+Si el cliente recoge el material directamente en nuestras instalaciones, no se cobrará flete.
+</div>
+
+        <button class="btn-primary" type="button" onclick="calcularCotizacion()">
+          <i class="ti ti-calculator"></i> Calcular cotización
+        </button>
+
+        <p class="quote-note">
+          *Los precios son por día. El total es aproximado y puede variar según disponibilidad, zona de entrega y condiciones del pedido.
+        </p>
+      </div>
+
+      <div class="quote-result">
+        <h3>Resultado aproximado</h3>
+
+        <div class="quote-total">
+          <span>Total estimado</span>
+          <strong id="totalCotizacion">$0</strong>
+        </div>
+
+        <ul class="quote-breakdown">
+          <li><span>Andamio estándar</span><strong id="resEstandar">0</strong></li>
+          <li><span>Andamio Perry</span><strong id="resPerry">0</strong></li>
+          <li><span>Medio cuerpo</span><strong id="resMedio">0</strong></li>
+          <li><span>Andamio de pasillo</span><strong id="resPasillo">0</strong></li>
+          <li><span>Juego de 4 ruedas</span><strong id="resRuedas">0</strong></li>
+          <li><span>Juego de 4 niveladores</span><strong id="resNiveladores">0</strong></li>
+          <li><span>Plataformas</span><strong id="resPlataformas">0</strong></li>
+          <li><span>Días</span><strong id="resDias">1</strong></li>
+        </ul>
+
+        <a id="whatsappCotizacion" class="quote-whatsapp" href="https://wa.me/5539936394" target="_blank">
+          <i class="ti ti-brand-whatsapp"></i> Enviar cotización por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ========== POR QUÉ NOSOTROS ========== -->
+<section class="why" id="nosotros">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-content">
+        <span class="section-tag">¿Por qué elegirnos?</span>
+        <h2 class="section-title">Seguridad y confianza en cada obra</h2>
+        <p class="section-sub" style="margin-bottom:32px">Somos la empresa de renta de andamios más confiable de la región. Nuestro equipo está certificado y nuestro material cumple con todas las normas de seguridad.</p>
+        <ul class="why-list">
+          <li><i class="ti ti-circle-check"></i> Equipo en excelente estado, revisado antes de cada entrega</li>
+          <li><i class="ti ti-circle-check"></i> Asesoría técnica durante toda la renta</li>
+          <li><i class="ti ti-circle-check"></i> Contrato claro y sin cargos ocultos</li>
+        </ul>
+      </div>
+      <div class="why-visual">
+        <div class="why-feature">
+          <div class="why-icon"><i class="ti ti-truck-delivery"></i></div>
+          <div class="why-text">
+            <h4>Entrega en 24 horas</h4>
+            <p>Coordinamos la logística para que tu obra no pare. Entregamos en el horario que necesites.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon"><i class="ti ti-certificate"></i></div>
+          <div class="why-text">
+            <h4>Material certificado</h4>
+            <p>Todos nuestros andamios cumplen con las normas NMX e ISO correspondientes.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon"><i class="ti ti-headset"></i></div>
+          <div class="why-text">
+            <h4>Soporte 24/7</h4>
+            <p>Estamos disponibles por teléfono y WhatsApp para cualquier urgencia en tu obra.</p>
+          </div>
+        </div>
+        <div class="why-feature">
+          <div class="why-icon"><i class="ti ti-coin"></i></div>
+          <div class="why-text">
+            <h4>Precios competitivos</h4>
+            <p>Planes flexibles por días, dias o meses. Descuentos por volumen y renta larga.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESO ========== -->
+<section class="process" id="proceso">
+  <div class="section-inner">
+    <div class="process-head">
+      <span class="section-tag">Así funciona</span>
+      <h2 class="section-title">Renta en 4 pasos simples</h2>
+      <p class="section-sub">Desde que nos contactas hasta que el andamio está en tu obra, todo el proceso es rápido y sin complicaciones.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">Paso 01</div>
+        <div class="step-icon"><i class="ti ti-phone"></i></div>
+        <h3>Contacto</h3>
+        <p>Llámanos o escríbenos por WhatsApp. Te atendemos de inmediato.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">Paso 02</div>
+        <div class="step-icon"><i class="ti ti-file-description"></i></div>
+        <h3>Cotización</h3>
+        <p>Te enviamos una cotización detallada según tu tipo de obra y tiempo de renta.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">Paso 03</div>
+        <div class="step-icon"><i class="ti ti-writing"></i></div>
+        <h3>Contrato</h3>
+        <p>Firmamos un contrato claro que protege tanto a ti como a nosotros.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">Paso 04</div>
+        <div class="step-icon"><i class="ti ti-truck"></i></div>
+        <h3>Entrega</h3>
+        <p>Llevamos el equipo a tu obra en el horario acordado. ¡Listo para trabajar!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ZONAS ========== -->
+<section class="zones" id="zonas">
+  <div class="section-inner">
+    <span class="section-tag">Cobertura</span>
+    <h2 class="section-title">Zonas de entrega</h2>
+    <p class="section-sub">Hacemos entregas en toda el área metropolitana y municipios cercanos del Estado y Ciudad de México. Consulta disponibilidad para tu zona.</p>
+    <div class="zones-grid">
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Centro </div>
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Norte</div>
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Sur</div>
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Oriente</div>
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Poniente</div>
+      <div class="zone-chip"><i class="ti ti-map-pin"></i> Zona industrial</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="contacto">
+  <h2>¿Listo para iniciar<br/>tu obra?</h2>
+  <p>Cotización sin costo y sin compromiso. Te respondemos en menos de 1 hora.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/5539936394" class="btn-white"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+    <a href="tel:55 3993 6394" class="btn-outline-white"><i class="ti ti-phone"></i> Llamar ahora</a>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <img class="footer-logo-img" src="./logo.jpeg" alt="Andamios Marlun"/>
+          <div class="footer-logo-text">
+            <strong>Andamios Marlun</strong>
+            <span>"Un Servicio Excepcional"</span>
+          </div>
+        </div>
+
+        <p>Más de 10 años rentando andamios industriales con seguridad, calidad y puntualidad en toda la región.</p>
+
+        <div class="footer-contact">
+          <a href="tel:5539936394"><i class="ti ti-phone"></i> (55) 3993-6394</a>
+          <a href="mailto:andamiosmarlun.rs@gmail.com"><i class="ti ti-mail"></i> andamiosmarlun.rs@gmail.com</a>
+          <a href="#zonas"><i class="ti ti-map-pin"></i> Estado de México</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="#cotizador" onclick="seleccionarProducto('estandar')">Andamio estándar</a></li>
+          <li><a href="#cotizador" onclick="seleccionarProducto('perry')">Andamio Perry</a></li>
+          <li><a href="#cotizador" onclick="seleccionarProducto('medio')">Medio cuerpo</a></li>
+          <li><a href="#cotizador" onclick="seleccionarProducto('pasillo')">Andamio de pasillo</a></li>
+          <li><a href="#cotizador" onclick="seleccionarProducto('plataformas')">Plataformas, ruedas y niveladores</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Empresa</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#proceso">Proceso de renta</a></li>
+          <li><a href="#zonas">Zonas de entrega</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#cotizador">Cotizador</a></li>
+          <li><a href="#contacto">Preguntas por WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Andamios Marlun. Todos los derechos reservados.</span>
+      <span>Hecho en México</span>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<script>
+  function valorNumero(id, minimo) {
+    const input = document.getElementById(id);
+    let valor = Number(input.value) || 0;
+    valor = Math.max(minimo, valor);
+    input.value = valor;
+    return valor;
+  }
+
+  function calcularCotizacion() {
+    const precios = {
+      estandar: 60,
+      perry: 90,
+      medio: 60,
+      pasillo: 60,
+      ruedas: 65,
+      niveladores: 65,
+      plataformas: 50
+    };
+
+    const estandar = valorNumero("estandar", 0);
+    const perry = valorNumero("perry", 0);
+    const medio = valorNumero("medio", 0);
+    const pasillo = valorNumero("pasillo", 0);
+    const ruedas = valorNumero("ruedas", 0);
+    const niveladores = valorNumero("niveladores", 0);
+    const plataformas = valorNumero("plataformas", 0);
+    const dias = valorNumero("dias", 1);
+
+    const subtotalDia =
+      (estandar * precios.estandar) +
+      (perry * precios.perry) +
+      (medio * precios.medio) +
+      (pasillo * precios.pasillo) +
+      (ruedas * precios.ruedas) +
+      (niveladores * precios.niveladores) +
+      (plataformas * precios.plataformas);
+
+    const total = subtotalDia * dias;
+
+    document.getElementById("totalCotizacion").textContent = "$" + total.toLocaleString("es-MX");
+    document.getElementById("resEstandar").textContent = estandar + " pza(s) - $" + (estandar * precios.estandar * dias).toLocaleString("es-MX");
+    document.getElementById("resPerry").textContent = perry + " pza(s) - $" + (perry * precios.perry * dias).toLocaleString("es-MX");
+    document.getElementById("resMedio").textContent = medio + " pza(s) - $" + (medio * precios.medio * dias).toLocaleString("es-MX");
+    document.getElementById("resPasillo").textContent = pasillo + " pza(s) - $" + (pasillo * precios.pasillo * dias).toLocaleString("es-MX");
+    document.getElementById("resRuedas").textContent = ruedas + " juego(s) - $" + (ruedas * precios.ruedas * dias).toLocaleString("es-MX");
+    document.getElementById("resNiveladores").textContent = niveladores + " juego(s) - $" + (niveladores * precios.niveladores * dias).toLocaleString("es-MX");
+    document.getElementById("resPlataformas").textContent = plataformas + " pza(s) - $" + (plataformas * precios.plataformas * dias).toLocaleString("es-MX");
+    document.getElementById("resDias").textContent = dias;
+
+    let mensaje = "Hola, quiero cotizar la renta de andamios y accesorios.%0A%0A";
+    if (estandar > 0) mensaje += "Andamio estándar: " + estandar + "%0A";
+    if (perry > 0) mensaje += "Andamio Perry: " + perry + "%0A";
+    if (medio > 0) mensaje += "Medio cuerpo: " + medio + "%0A";
+    if (pasillo > 0) mensaje += "Andamio de pasillo: " + pasillo + "%0A";
+    if (ruedas > 0) mensaje += "Juego de 4 ruedas: " + ruedas + "%0A";
+    if (niveladores > 0) mensaje += "Juego de 4 niveladores: " + niveladores + "%0A";
+    if (plataformas > 0) mensaje += "Plataformas: " + plataformas + "%0A";
+    mensaje += "Días de renta: " + dias + "%0A";
+    mensaje += "Total aproximado: $" + total.toLocaleString("es-MX") + "%0A%0A";
+    mensaje += "Nota: entiendo que no incluye instalación ni flete.";
+
+    document.getElementById("whatsappCotizacion").href = "https://wa.me/5539936394?text=" + mensaje;
+  }
+
+  function seleccionarProducto(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    if (Number(input.value) === 0) {
+      input.value = 1;
+    }
+
+    calcularCotizacion();
+
+    setTimeout(function() {
+      input.focus();
+      input.select();
+    }, 350);
+  }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    calcularCotizacion();
+    ["estandar", "perry", "medio", "pasillo", "ruedas", "niveladores", "plataformas", "dias"].forEach(function(id) {
+      document.getElementById(id).addEventListener("input", calcularCotizacion);
+    });
+  });
+</script>
+
+
+
+
+</body>
+</html>
